@@ -3649,7 +3649,7 @@ input[type="button"].btn-block {
 }
 
 .collapse:not(.show) {
-    display: none;
+    display: inline-flex;
 }
 
 .collapsing {
