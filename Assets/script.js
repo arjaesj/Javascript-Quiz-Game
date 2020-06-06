@@ -47,8 +47,6 @@ var wrongAlert = document.querySelector("#wrong-answer");
 // OTHER VARIABLES
 //  End page Name Input variable
 var nameReg = document.querySelector("#inputLarge");
-// Registered name variable
-var registeredName = document.querySelector("#registered-name");
 // Display current question
 var showCurrentQuestion = document.querySelector("#question-current");
 // Display question counter
@@ -99,8 +97,10 @@ var questionsAndAnswers = [{
 ];
 
 // INITIAL EMPTY VARIABLES
+//Time interval variable
+var timeInterval = "";
 // Time display variable
-var timeDIsp = "";
+var timeRunning = "";
 // End time variable
 var endTime = "";
 // Correct Answer variable
@@ -151,10 +151,10 @@ function timerStart() {
         startCountdown();
 
         // If statement when timer reaches 0, timer displayed as 0 and display End Page 
-        if (currentTime == 0) {
+        if (currentTime === 0) {
             clearInterval(timeInterval);
             endTime = timeRunning;
-            dispEndPageTimeOut()
+            dispEndPageTimeOut();
         }
     }, 1000);
 }
@@ -240,7 +240,7 @@ function incorrectAns() {
         startCountdown();
     } else {
         // If timer has less than 5 seconds remaining
-        timeRunning = 0
+        timeRunning = 0;
         startCountdown();
     }
 }
@@ -258,20 +258,20 @@ function dispEndPageComp() {
 }
 
 // Click event for Try Again button
-tryAgainBtn.addEventListener("click", function(event) {
-    event.dispSplashPage();
+tryAgainBtn.addEventListener("click", function() {
+    dispSplashPage();
     questionCount = 0;
 });
 
 // Click event for Quiz restart
-restartQuizBtn.addEventListener("click", function(event) {
-    event.dispSplashPage();
+restartQuizBtn.addEventListener("click", function() {
+    dispSplashPage();
     questionCount = 0;
 });
 
 // Click event for Quitters
-quitterButton.addEventListener("click", function(event) {
-    event.dispSplashPage();
+quitterButton.addEventListener("click", function() {
+    dispSplashPage();
     questionCount = 0;
 });
 
@@ -285,7 +285,7 @@ function dispSplashPage() {
     endPageTimerOutDisp.style.display = "none";
     highScoresBtn.style.visibility = "visible";
     timeRemaining.style.visibility = "visible";
-    resetTime()
+    resetTime();
 }
 
 //  Click event for High Scores Page
@@ -352,9 +352,9 @@ function storeName() {
 function printNameAndScore() {
     ordHiscoresList.innerHTML = "";
 
-    // Get stored todos from localStorage
+    // Get stored name & scores from localStorage
     // Parsing the JSON string to an object
-    var savedHiscores = JSON.parse(localStorage.getItem("highscores"));
+    var savedHiscores = JSON.parse(localStorage.getItem("highScores"));
 
     // Sort High Score entries in decending order
     savedHiscores.sort(function(a, b) {
