@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootswatch CSS Theme: Sketchy -->
+    <link rel="stylesheet" href="Assets/bootstrap.css">
+    <link rel="stylesheet" href="Assets/style.css">
+    <title>JS Quiz</title>
+</head>
+
+<body>
+    <!-- Header using modified Bootstrap Nav bar containing  link to High Scores & Quiz timer-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <!-- High Scores link button -->
+            <button class="btn btn-secondary my-2 my-sm-0 navbar-nav mr-auto" type="button" id="high-scores">High
+                Scores</button>
+            <div id="timer">
+                <div id="time" class="div-inline my-2 my-lg-0">Time remaining: <span id="quiz-time">0</span></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <!-- Quiz splash page -->
+                <div class="jumbotron" id="splash-page">
+                    <h1 class="display-3">Welcome to the Javascript Quiz!</h1>
+                    <p class="lead">This is a multiple choice quiz that will test your knowledge about anything Javascript. Set a high score then challenge your peers.</p>
+                    <hr class="my-4">
+                    <p>Start the quiz by clicking the button below. Watch out for the time on the upper right corner. Incorrect answers are penalised by 20 seconds of your time remaining. Ready?</p>
+                    <p class="lead">
+                        <button class="btn btn-primary btn-lg" type="button" id="start-quiz-btn">Let's Go!</button>
+                    </p>
+                </div>
+
+                <!-- Quiz questions loop-->
+                <div class="jumbotron" id="questions-page" style="display:none">
+                    <h1 class="display-3">Question</h1>
+                    <h2 class="display-4" id="question-count"></h2>
+
+                    <p class="lead" id="question-current"></p>
+                    <div class="multiple-choice">
+                        <button class="btn btn-primary" type="submit" value="Submit" id="ans-choice-1"></button>
+                        <button class="btn btn-primary" type="submit" value="Submit" id="ans-choice-2"></button>
+                        <button class="btn btn-primary" type="submit" value="Submit" id="ans-choice-3"></button>
+                        <button class="btn btn-primary" type="submit" value="Submit" id="ans-choice-4"></button>
+                    </div>
+                    <hr class="my-4">
+                    <!-- Display  if answer is yay or nay-->
+                    <div id="question-result">
+                        <span class="badge badge-success" id="correct-answer">That's Correct!</span>
+                        <span class="badge badge-danger" id="wrong-answer">Awww... watch out for your time!</span>
+                    </div>
+                    <hr class="my-4">
+                    <!-- Button for quiz quitters -->
+                    <button type="button" class="btn btn-outline-danger" id="quitter">Quit Quiz :(</button>
+                </div>
+
+                <!-- End of quiz page completed -->
+                <div class="jumbotron" id="end-page-complete" style="display:none">
+                    <h1 class="display-3">Nice job! That's the end of the Quiz!</h1>
+                    <p class="lead">To register your score, enter your name below:</p>
+                    <hr class="my-4">
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-lg" for="inputLarge">Enter you name below:</label>
+                        <input class="form-control form-control-lg" type="text" placeholder="Name" id="inputLarge">
+                    </div>
+                    <p class="lead">
+                        <button class="btn btn-primary btn-lg" type="submit" id="registered-name">Submit</button>
+                    </p>
+                </div>
+
+                <!-- End of quiz page timer run out -->
+                <div class="jumbotron" id="end-page-time-out" style="display:none">
+                    <h1 class="display-3">You're out of time!</h1>
+                    <p class="lead">Try again?</p>
+                    <hr class="my-4">
+                    <div id="time-out-btns">
+                        <button class="btn btn-primary btn-lg" type="button" id="try-again">Let's Go!</button>
+                        <button class="btn btn-outline-danger" type="button" id="quitter">Quit Quiz :(</button>
+                    </div>
+                </div>
+
+                <!-- High Scores page -->
+                <div class="jumbotron" id="hi-score-page" style="display:none">
+                    <h1 class="display-3">High Scores</h1>
+                    <ol id="ordered-hi-scores">
+                    </ol>
+                    <hr class="my-4">
+                    <div id="hi-score-page-btns" style="display: flex;">
+                        <button type="button" class="btn btn-info" id="restart">Restart Quiz</button>
+                        <button type="button" class="btn btn-danger" id="clear-high-scores">Clear High Scores</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
+
+</body>
